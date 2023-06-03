@@ -3,6 +3,7 @@ import os
 from upgraded_cmd.classes.entry import Entry, new_command, add_completion
 from upgraded_cmd.constants import SHOW
 
+
 @new_command('help')
 def _(self: Entry, *args):
     """help\nShows all available commands\n\nhelp <command>\nShows <command> description if available"""

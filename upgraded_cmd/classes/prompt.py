@@ -49,3 +49,16 @@ class AnimatedPrompt(BasePrompt):
 
     def get_prompt(self) -> str:
         return self.prompts[self.state] + self.instr[self.state][0]
+
+
+class SimplePrompt(BasePrompt):
+    def __init__(self, prompt):
+        self.old_line_prompt = self.prompt = prompt + (FORMATTER if FORMATTER not in prompt else '')
+        self.instr = self.instructions(self.prompt)
+
+    def display(self, text: str, index: int):
+        BasePrompt.display(self, text, index)
+        self.pre_display = self.instr[1]
+
+    def get_prompt(self) -> str:
+        return self.prompt + self.instr[0]

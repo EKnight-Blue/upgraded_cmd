@@ -69,7 +69,7 @@ class MetaCMD(type):
             name: value for base in bases if hasattr(base, 'commands') for name, value in base.commands.items()
         } | cls.commands | dic.get('commands', {})
         complete = {
-            name: value for base in bases if hasattr(base, 'complete') for name, value in base.commands.items()
+            name: value for base in bases if hasattr(base, 'complete') for name, value in base.complete.items()
         } | cls.complete | dic.get('complete', {})
         cls.commands, cls.complete = {}, {}
         return type.__new__(cls, name, bases, dic | {'commands': commands, 'complete': complete})
@@ -152,11 +152,12 @@ class Entry(metaclass=MetaCMD):
         text = self.text[:self.index]
         words, new_word = text.split(), not text.split(' ')[-1]
         words += [''] * new_word
+
         if self.cycling_index == -1:
             self.old_word = words[-1]
         self.cycling_index = (self.cycling_index + 2) % (len(self.cycle) + 1) - 1
-        new_words = words[:-1] + [self.old_word if self.cycling_index == -1 else self.cycle[self.cycling_index]]
 
+        new_words = words[:-1] + [self.old_word if self.cycling_index == -1 else self.cycle[self.cycling_index]]
         self.text = ' '.join(new_words)
         self.index = len(self.text)
 

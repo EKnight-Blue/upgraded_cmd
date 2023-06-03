@@ -1,4 +1,3 @@
-from upgraded_cmd.constants import *
 from upgraded_cmd import *
 
 PROMPTS = (
@@ -46,6 +45,7 @@ OLD_P = '\n'.join((
 
 @new_command('wait')
 def _(self: CMD, *args):
+    """wait\nWastes all your time"""
     try:
         while True:
             continue
