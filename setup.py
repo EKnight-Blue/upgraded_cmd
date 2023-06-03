@@ -5,7 +5,7 @@ setup(
     packages=[
         'upgraded_cmd', 'upgraded_cmd.classes'
     ],
-    version='1.0.0',
+    version='1.1.1',
     description='Similar to built-in.cmd but allows tab completion in windows',
     author='Loïc Chevalier',
     long_description="This is a package",
