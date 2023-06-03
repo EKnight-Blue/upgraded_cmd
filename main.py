@@ -43,5 +43,18 @@ OLD_P = '\n'.join((
         red('└─┘')
     ))
 
+
+@new_command('wait')
+def _(self: CMD, *args):
+    try:
+        while True:
+            continue
+    except KeyboardInterrupt:
+        return
+
+
+class cmd(CMD):
+    pass
+
 P = AnimatedPrompt(PROMPTS, OLD_P)
-CMD(P).run()
+cmd(P).run()
