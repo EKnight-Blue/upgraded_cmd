@@ -8,6 +8,6 @@ setup(
     version='1.0.0',
     description='Similar to built-in.cmd but allows tab completion in windows',
     author='Loïc Chevalier',
-    long_description="",
-
+    long_description="This is a package",
+    long_description_content_type='text/markdown'
 )
