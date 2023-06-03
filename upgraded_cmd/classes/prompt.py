@@ -1,4 +1,4 @@
-from shell.constants import *
+from upgraded_cmd.constants import *
 
 
 class BasePrompt:

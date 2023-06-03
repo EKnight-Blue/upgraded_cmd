@@ -1,6 +1,6 @@
 import asyncio
 import os
-from shell.classes.entry import Entry, new_command, add_completion
+from upgraded_cmd.classes.entry import Entry, new_command, add_completion
 
 
 @new_command('help')

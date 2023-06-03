@@ -1,5 +1,5 @@
-from shell.constants import *
-from shell import *
+from upgraded_cmd.constants import *
+from upgraded_cmd import *
 
 PROMPTS = (
     '\n'.join((
