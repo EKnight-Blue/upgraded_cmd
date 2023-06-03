@@ -56,5 +56,6 @@ def _(self: CMD, *args):
 class cmd(CMD):
     pass
 
+
 P = AnimatedPrompt(PROMPTS, OLD_P)
 cmd(P).run()

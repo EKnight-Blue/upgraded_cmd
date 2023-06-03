@@ -1,7 +1,7 @@
 import asyncio
 import os
 from upgraded_cmd.classes.entry import Entry, new_command, add_completion
-
+from upgraded_cmd.constants import SHOW
 
 @new_command('help')
 def _(self: Entry, *args):
@@ -42,9 +42,9 @@ class CMD(Entry):
             self.prompt.display(self.text, self.index)
             await asyncio.sleep(.05)
         if self.text:
-            self.prompt.display_old_line(self.text)
+            self.prompt.display_old_line(self.text + SHOW)
         else:
-            print(self.prompt.pre_display, end='')
+            print(self.prompt.pre_display, end=SHOW)
 
     async def main_loop(self):
         await asyncio.gather(self.display_loop(), self.read_loop())
